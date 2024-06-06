@@ -211,16 +211,21 @@ body, h1, h2, ul, li, p, dd, dt, dl {
     }
   }
   
-  .js .js-tabcontent section {
+  .js [data-tab="content"] section {
     display: none;
   }
   
-  .js-tabcontent section.ativo {
+  [data-tab="content"] section.ativo {
     display: block !important;
-    animation: show .5s forwards;
+  }
+  [data-tab="content"] section.ativo.show-right {
+    animation: show-right .5s forwards;
+  }
+  [data-tab="content"] section.ativo.show-down {
+    animation: show-down .5s forwards;
   }
   
-  @keyframes show {
+  @keyframes show-right {
     from {
       opacity: 0;
       transform: translate3d(-30px, 0, 0);
@@ -230,21 +235,31 @@ body, h1, h2, ul, li, p, dd, dt, dl {
       transform: translate3d(0, 0, 0);
     }
   }
+  @keyframes show-down {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
   
-  .js .js-accordion dd {
+  .js [data-anime="accordion"] dd {
     display: none;
   }
   
-  .js-accordion dt::after {
+  [data-anime="accordion"] dt::after {
     content: '⬎';
     margin-left: 10px;
   }
   
-  .js-accordion dt.ativo::after {
+  [data-anime="accordion"] dt.ativo::after {
     content: '⬏';
   }
   
-  .js-accordion dd.ativo {
+  [data-anime="accordion"].ativo {
     display: block;
     animation: slideDown .5s forwards;
   }
@@ -260,13 +275,13 @@ body, h1, h2, ul, li, p, dd, dt, dl {
     }
   }
   
-  .js .js-scroll {
+  .js [data-anime="scroll"] {
     opacity: 0;
     transform: translate3d(-30px, 0, 0);
     transition: .3s;
   }
   
-  .js .js-scroll.ativo {
+  .js [data-anime="scroll"].ativo {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
