@@ -7,6 +7,7 @@ import initTooltip from "./modules/tooltip.js"
 import initDropdownMenu from "./modules/dropdown-menu.js"
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
+import SlideNav from './modules/slide.js';
 
 initAnimacaoScroll()
 initScrollSuave()
@@ -17,3 +18,7 @@ initTooltip();
 initDropdownMenu();
 initMenuMobile();
 initFetchAnimais();
+
+const slide = new SlideNav('.slide', '.slide-wrapper');
+slide.init();
+slide.addControl('.custom-controls');
